@@ -5,9 +5,18 @@ import { SlideItem } from './SlideItem';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { useEffect, useState } from 'react';
 
 export function Slide() {
 
+    const [banners, setBanners] = useState([])
+    
+    useEffect( () => {
+        fetch('/api/banners')
+        .then(resp => resp.json())
+        .then( ({ banners }) => setBanners(banners))
+    }, []) 
+    
     return (
         <Swiper
             modules={[Navigation, Pagination, A11y]}
@@ -18,12 +27,13 @@ export function Slide() {
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')} 
         >
-            <SwiperSlide>
-                <SlideItem img={'/imgs/continent-image.png'} title={'Europa'} subTitle='O continente mais antigo.' />
-            </SwiperSlide>
-            <SwiperSlide>
-                <SlideItem title={'Europa'} subTitle='O continente mais antigo.' />
-            </SwiperSlide>
+            {
+                banners.map( banner => (
+                    <SwiperSlide key={banner.title}>                        
+                        <SlideItem img={banner.img} title={banner.title} subTitle={banner.subTitle} slug={banner.slug} />
+                    </SwiperSlide>
+                ))
+            }
         </Swiper>  
     )
 
