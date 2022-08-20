@@ -5,9 +5,14 @@ export function CardInfo({ bgImg, icon, city, country }) {
         <Box  
             marginBottom={'35px'}
             backgroundColor={'#fff'}
-            borderRadius={'8px'}
+            borderRadius={'8px'} 
         >
-            <Img src={bgImg} />
+            <Img 
+                borderLeft={'1px solid'}
+                borderRight={'1px solid'}
+                borderColor={'gray.300'}
+                src={bgImg} 
+            />
 
             <Flex
                 justifyContent={'space-between'}

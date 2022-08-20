@@ -1,30 +1,30 @@
 import { Box, Flex, Img, Text } from "@chakra-ui/react";
-import { useRouter } from "next/router"
-// import fetch from "node-fetch";
 import { useEffect, useState } from "react";
 import { CardInfo } from "../../components/CardInfo";
 import { Header } from "../../components/Header";
 
-export default function PageContinent() {
+export default function PageContinent({ continent }) {
 
-    const router = useRouter()
-    const { continent } = router.query;
     const [continents, setContinents] = useState([]);
 
     useEffect( () => {
-        async function fetchData() {
-            const resp = await fetch(`http://localhost:3000/api/continents/${continent}`);
-            const data = await resp.json();
 
-            if (data?.continents) {
-                setContinents(data.continents)
+        if (continent) {
+            async function fetchData() {
+                const resp = await fetch(`http://localhost:3000/api/continents/${continent}`);
+                const data = await resp.json();
+    
+                if (data?.continents) {
+                    setContinents(data.continents)
+                }
             }
+    
+            fetchData()
         }
+        
+    }, [ continent ])
 
-        fetchData()
-    }, [])
-
-    console.log(continents)
+    if (continents.length == 0) return 
     
     return (
         <div>
@@ -33,37 +33,42 @@ export default function PageContinent() {
             <Flex 
                 as={'main'}
                 flexDir={'column'}
-                backgroundColor={'#DADADA'}
+                backgroundColor={'gray.300'}
             >
 
                 <Box
                     position={'relative'}
+                    display={'flex'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
                 >
                     <Img src={continents?.bannerMain} w={'100vw'} />
                     <Text
                         position={'absolute'}
-                        bottom={'59px'}
-                        left={'140px'}
+                        bottom={['', '', '59px']}
+                        left={['', '', '140px']}
                         color={'#fff'}
                         fontWeight={'600'}
                         fontSize={'48px'}
+                        textTransform={'capitalize'}
                     >{continent}</Text>
                 </Box>            
                 
                 <Flex
-                    padding={'80px 140px'}
+                    padding={['24px 16px 16px', '24px 16px 16px', '80px 140px']}
                     flexDir={'row'}
-                    gap={'70px'}
+                    gap={['16px', '16px', '70px']}
                     justifyContent={'space-between'}
+                    flexDirection={['column', 'column', 'row']}
                 >
                     
-                    <Box maxWidth={'50%'}>
+                    <Box maxWidth={['100%', '100%', '50%']}>
                         <Text
                             fontWeight={'400'}
                             fontSize={'24px'}
                             color={'gray.800'}
                             textAlign={'justify'}
-                        >{ continents.content }</Text>
+                        >{ continents?.content }</Text>
                     </Box>
                     
                     <Box
@@ -96,7 +101,7 @@ export default function PageContinent() {
                                 fontSize={'48px'}
                                 color={'#FFBA08'}
                             >
-                            { continents.infoBase?.languages }
+                            { continents?.infoBase?.languages }
                             </Text>
                             línguas
                         </Text>
@@ -111,7 +116,7 @@ export default function PageContinent() {
                                 fontSize={'48px'}
                                 color={'#FFBA08'}
                             >
-                            { continents.infoBase?.city_tot }
+                            { continents?.infoBase?.city_tot }
                             </Text>
                             cidades +100 
                         </Text>
@@ -122,10 +127,11 @@ export default function PageContinent() {
 
                 <Flex
                     justifyContent={'center'}
-                    padding={'0px 140px'}
+                    padding={['16px', '16px', '0px 140px']}
                 >
                     <Flex
                         flexDir={'column'}
+                        w={'100%'}
                     >
                         <Text
                             fontSize={'36px'}
@@ -137,7 +143,9 @@ export default function PageContinent() {
                         <Flex
                             gap={'45px'}
                             flexWrap={'wrap'}
-                            justifyContent={'space-between'}
+                            justifyContent={['center', 'center', 'space-between']}
+                            flexDirection={['column', 'column', '']}   
+                            alignItems={'center'}
                         >
                             {
                                 continents?.city?.map( ({ name, countryRef, img, icon }) => (
@@ -157,23 +165,22 @@ export default function PageContinent() {
 
 }
 
-export async function getServerSideProps({ params }) {
+export const getStaticPaths = () => {
+    return {
+        paths: [], //-> Serve para indicar quais páginas serão geradas de forma estática durante o build
+        fallback: 'blocking'
+    }
+}
 
-    const { continent } = params
+export async function getStaticProps({ params }) {
 
-    // try {
-    //     const resp = await fetch(`http://localhost:3000/api/continents/${continent}`);
-    //     console.log(resp)
-    //     const data = await resp.json();
-    
-    // } catch (error) {
-    //     console.log(error)        
-    // }
+    const { continent } = params;
     
     return {
         props: {
             continent
         },
+        revalidate: 20, //20 seconds
     }
    
 }  
