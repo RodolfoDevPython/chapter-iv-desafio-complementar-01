@@ -9,6 +9,7 @@ export function Benefits() {
             align='center'
             justifyContent={'center'}
             gap={130}
+            marginBottom={'52px'}
         >
             <BenefitItem text="vida noturna" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="81" height="85" viewBox="0 0 81 85" fill="none">

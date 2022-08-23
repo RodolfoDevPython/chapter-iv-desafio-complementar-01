@@ -9,15 +9,15 @@ export const theme = extendTheme({
           "700": "#353646",
           "600": "#4B4D63",
           "500": "#47585B",
-          "400": "#797D9A",
+          "400": "#999999",
           "300": "#DADADA",
           "200": "#B3B5C6",
-          "100": "#D1D2DC",
+          "100": "#F5F8FA",
           "50": "#EEEEF2",
       }
   },
   fonts: {
-    heading: 'Roboto',
-    body: 'Roboto',
+    heading: 'Poppins',
+    body: 'Poppins',
   }
 })

@@ -33,7 +33,7 @@ export default function PageContinent({ continent }) {
             <Flex 
                 as={'main'}
                 flexDir={'column'}
-                backgroundColor={'gray.300'}
+                backgroundColor={'gray.100'}
             >
 
                 <Box
@@ -144,7 +144,7 @@ export default function PageContinent({ continent }) {
                             gap={'45px'}
                             flexWrap={'wrap'}
                             justifyContent={['center', 'center', 'space-between']}
-                            flexDirection={['column', 'column', '']}   
+                            flexDirection={['column', 'column', 'row']}   
                             alignItems={'center'}
                         >
                             {

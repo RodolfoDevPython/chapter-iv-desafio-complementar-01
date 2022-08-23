@@ -11,7 +11,7 @@ export function Header() {
 
     return (
         <Flex
-            bg='#fff'
+            bg={`${isHome ? '#fff' : 'gray.100' }`}
             h={['50', '50', "100"]}
             as="header"
             align="center" 

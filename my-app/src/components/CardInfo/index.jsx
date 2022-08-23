@@ -33,7 +33,7 @@ export function CardInfo({ bgImg, icon, city, country }) {
                     <Text
                         fontWeight={'500'}
                         fontSize={'16px'}
-                        color={'gray.300'}
+                        color={'gray.400'}
                     >
                         {country}
                     </Text>

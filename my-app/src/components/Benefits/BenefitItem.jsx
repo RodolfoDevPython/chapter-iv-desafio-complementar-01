@@ -8,6 +8,7 @@ export function BenefitItem({ text, children }) {
             alignItems={'center'}
             justifyContent={'center'}
             paddingBottom={'80px'}
+            border={'2px solid transparent'}
             _hover={{
                 borderBottomWidth: '2px',
                 borderBottomStyle: 'solid',

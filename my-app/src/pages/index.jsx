@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Banner } from '../components/Banner'
 import { Benefits } from '../components/Benefits'
 import { ChooseOrigin } from '../components/ChooseOrigin'
 import { Footer } from '../components/Footer'
@@ -14,7 +15,10 @@ export default function Home() {
       </Head>
 
       <Header />
+
       <main>
+        <Banner />
+
         <Benefits />
 
         <ChooseOrigin />
