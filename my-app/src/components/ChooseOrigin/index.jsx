@@ -6,11 +6,12 @@ export function ChooseOrigin() {
         <Flex 
             justifyContent={'center'}
             alignItems={'center'}
-            marginBottom={'52px'}
+            marginBottom={['20px', '20px', '52px']}
         >
 
             <Text
-                fontSize={'36px'}
+                fontSize={['20px', '20px', '36px']}
+                lineHeight={['30px', '30px', '54px']}
                 color={'gray.500'}
                 fontWeight={'500'}
                 align={'center'}

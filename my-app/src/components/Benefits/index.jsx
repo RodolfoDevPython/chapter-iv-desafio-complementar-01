@@ -6,10 +6,12 @@ export function Benefits() {
     return (
         <Flex 
             flexDirection={"row"}
+            flexWrap={['wrap', 'wrap', 'no-wrap']}
             align='center'
             justifyContent={'center'}
-            gap={130}
-            marginBottom={'52px'}
+            gap={['0px 71px', '0px 71px', '130px']}
+            marginBottom={['24px', '24px', '52px']}
+            padding={['36px 16px 0px', '36px 16px 0px', '0px']}
         >
             <BenefitItem text="vida noturna" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="81" height="85" viewBox="0 0 81 85" fill="none">

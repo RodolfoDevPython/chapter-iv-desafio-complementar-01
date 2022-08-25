@@ -42,14 +42,15 @@ export default function PageContinent({ continent }) {
                     justifyContent={'center'}
                     alignItems={'center'}
                 >
-                    <Img src={continents?.bannerMain} w={'100vw'} />
+                    <Img src={continents?.bannerMain} w={'100vw'} h />
                     <Text
                         position={'absolute'}
                         bottom={['', '', '59px']}
                         left={['', '', '140px']}
                         color={'#fff'}
                         fontWeight={'600'}
-                        fontSize={'48px'}
+                        fontSize={['28px', '28px', '48px']}
+                        lineHeight={['42px', '42px', '72px']}
                         textTransform={'capitalize'}
                     >{continent}</Text>
                 </Box>            
@@ -57,6 +58,7 @@ export default function PageContinent({ continent }) {
                 <Flex
                     padding={['24px 16px 16px', '24px 16px 16px', '80px 140px']}
                     flexDir={'row'}
+                    flexWrap={['wrap', 'wrap', 'no-wrap']}
                     gap={['16px', '16px', '70px']}
                     justifyContent={'space-between'}
                     flexDirection={['column', 'column', 'row']}
@@ -65,7 +67,8 @@ export default function PageContinent({ continent }) {
                     <Box maxWidth={['100%', '100%', '50%']}>
                         <Text
                             fontWeight={'400'}
-                            fontSize={'24px'}
+                            fontSize={['14px', '14px', '24px']}
+                            lineHeight={['21px', '21px', '36px']}
                             color={'gray.800'}
                             textAlign={'justify'}
                         >{ continents?.content }</Text>
@@ -76,14 +79,16 @@ export default function PageContinent({ continent }) {
                         gap={'42px'}
                     >
                         <Text
-                            fontWeight={'600'}
-                            fontSize={'24px'}
+                            fontWeight={['400', '400', '600']}
+                            fontSize={['18px', '18px', '24px']}
+                            lineHeight={['27px', '27px', '36px']}
                             color={'gray.800'}
                             align={'center'}
                         >
                             <Text
                                 fontWeight={'600'}
-                                fontSize={'48px'}
+                                fontSize={['24px', '24px', '48px']}
+                                lineHeight={['36px', '36px', '72px']}
                                 color={'#FFBA08'}
                             >
                                 { continents.infoBase?.country_tot }
@@ -91,14 +96,16 @@ export default function PageContinent({ continent }) {
                             países
                         </Text>
                         <Text
-                            fontWeight={'600'}
-                            fontSize={'24px'}
+                            fontWeight={['400', '400', '600']}
+                            fontSize={['18px', '18px', '24px']}
+                            lineHeight={['27px', '27px', '36px']}
                             color={'gray.800'}
                             align={'center'}
                         >
                             <Text
                                 fontWeight={'600'}
-                                fontSize={'48px'}
+                                fontSize={['24px', '24px', '48px']}
+                                lineHeight={['36px', '36px', '72px']}
                                 color={'#FFBA08'}
                             >
                             { continents?.infoBase?.languages }
@@ -106,14 +113,16 @@ export default function PageContinent({ continent }) {
                             línguas
                         </Text>
                         <Text
-                            fontWeight={'600'}
-                            fontSize={'24px'}
+                            fontWeight={['400', '400', '600']}
+                            fontSize={['18px', '18px', '24px']}
+                            lineHeight={['27px', '27px', '36px']}
                             color={'gray.800'}
                             align={'center'}
                         >
                             <Text
                                 fontWeight={'600'}
-                                fontSize={'48px'}
+                                fontSize={['24px', '24px', '48px']}
+                                lineHeight={['36px', '36px', '72px']}
                                 color={'#FFBA08'}
                             >
                             { continents?.infoBase?.city_tot }
@@ -134,14 +143,15 @@ export default function PageContinent({ continent }) {
                         w={'100%'}
                     >
                         <Text
-                            fontSize={'36px'}
+                            fontSize={['24px', '24px', '36px']}
+                            lineHeight={['36px', '36px', '54px']}
                             fontWeight={'500'}
                             color={'gray.800'}
-                            marginBottom={'40px'}
+                            marginBottom={['20px', '20px', '40px']}
                         >Cidades +100</Text>
 
                         <Flex
-                            gap={'45px'}
+                            gap={'0px 45px'}
                             flexWrap={'wrap'}
                             justifyContent={['center', 'center', 'space-between']}
                             flexDirection={['column', 'column', 'row']}   

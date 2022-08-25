@@ -3,7 +3,7 @@ import { Box, Flex, Img, Text } from "@chakra-ui/react";
 export function CardInfo({ bgImg, icon, city, country }) {
     return (
         <Box  
-            marginBottom={'35px'}
+            marginBottom={['20px', '20px', '35px']}
             backgroundColor={'#fff'}
             borderRadius={'8px'} 
         >
@@ -26,6 +26,7 @@ export function CardInfo({ bgImg, icon, city, country }) {
                     <Text
                         fontWeight={'600'}
                         fontSize={'20px'}
+                        lineHeight={'25px'}
                         color={'gray.800'}
                     >
                         {city}
@@ -33,6 +34,7 @@ export function CardInfo({ bgImg, icon, city, country }) {
                     <Text
                         fontWeight={'500'}
                         fontSize={'16px'}
+                        lineHeight={'26px'}
                         color={'gray.400'}
                     >
                         {country}
