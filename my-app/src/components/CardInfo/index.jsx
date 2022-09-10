@@ -12,6 +12,8 @@ export function CardInfo({ bgImg, icon, city, country }) {
                 borderRight={'1px solid'}
                 borderColor={'gray.300'}
                 src={bgImg} 
+                maxW={'256px'}
+                height={'173px'}
             />
 
             <Flex
@@ -43,7 +45,7 @@ export function CardInfo({ bgImg, icon, city, country }) {
                 </Flex>
                 
 
-                <Img src={icon}  />
+                <Img src={icon} maxW={'30px'} maxH={'30px'} />
             </Flex>
 
             

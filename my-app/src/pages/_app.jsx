@@ -1,7 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { makeServer } from '../server/miragejs'
 import { theme } from '../styles/theme'
-
+import "../styles/global.css"
 
 makeServer({ environment: "development" })
 
